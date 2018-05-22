@@ -62,26 +62,13 @@
 		var Motor = document.getElementById("motor").value;
 		document.getElementById("motorvalue").innerHTML = Motor;
 
-
 		if(cpf){
 			cpf.setFan("0", + motorvalue);
-			
-			
-		
+					
 		}
-	
 
 	}
 	
-
-
-
-
-
-
-
-
-
 	// RGB
 	function changeColor() {
 		var Rled = document.getElementById("rled").value;
@@ -92,27 +79,18 @@
 		document.getElementById("redvalue").innerHTML = Rled;
 		document.getElementById("greenvalue").innerHTML = Gled;
 		document.getElementById("bluevalue").innerHTML = Bled;
-			
 		
 		document.getElementById("showcolor").style.backgroundColor = 'rgb(' + Rled + ',' + Gled + ',' + Bled + ')';
-		
 		if(cpf){
 			cpf.setChainableLed("0," + Rled + "," + Gled + "," + 	Bled + ";");
-		}
-		
+		}	
 	}
-	
-	
 	// cpf setup
 	function setup(){
 		if(cpf)
 			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 1,"INPUT"],["grove_newChainableLED", 7, 8, 1],["setPinMode", "digital", 3, "PWM"]'); 
-			
 			//document.getElementById("demo").innerHTML += ret + "<br>";
 	}
-
-
-	
 </script>
 </body>
 </html>
