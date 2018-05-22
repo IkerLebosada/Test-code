@@ -62,8 +62,12 @@
 		var Motor = document.getElementById("motor").value;
 		document.getElementById("motorvalue").innerHTML = Motor;
 
-		cpf.set("fan", + motorvalue);
+
+		if(cpf){
+				cpf.set("fan", + motorvalue);
 		
+		}
+	
 
 	}
 	
