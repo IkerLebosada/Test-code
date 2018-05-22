@@ -42,7 +42,8 @@
 			<br>	
 			<table style="margin: 0 auto; margin-top: 10px;">
 				<tr style="text-align: center;">
-					<td><b>Motor</b></td>
+
+					//<td><b>Motor</b></td>
 				</tr>
 				<tr style="margin: 0 auto; margin-top: 10px;">
 						<td id="motorvalue">0</td>
@@ -57,18 +58,29 @@
 </div>
 
 <script>
-	//motorvalue
+	//motor
 	function changeSpeed() {
 		var Motor = document.getElementById("motor").value;
 		document.getElementById("motorvalue").innerHTML = Motor;
 
+
 		if(cpf){
-			cpf.set("fan", + motorvalue);
-					
+			cpf.request('["analogWrite",3, Motor]');
+		
 		}
+	
 
 	}
 	
+
+
+
+
+
+
+
+
+
 	// RGB
 	function changeColor() {
 		var Rled = document.getElementById("rled").value;
@@ -79,18 +91,27 @@
 		document.getElementById("redvalue").innerHTML = Rled;
 		document.getElementById("greenvalue").innerHTML = Gled;
 		document.getElementById("bluevalue").innerHTML = Bled;
+			
 		
 		document.getElementById("showcolor").style.backgroundColor = 'rgb(' + Rled + ',' + Gled + ',' + Bled + ')';
+		
 		if(cpf){
 			cpf.setChainableLed("0," + Rled + "," + Gled + "," + 	Bled + ";");
-		}	
+		}
+		
 	}
-	// cpf setup
+	
+	
+	// cpf setup	
 	function setup(){
 		if(cpf)
-			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 1,"INPUT"],["grove_newChainableLED", 7, 8, 1],["setPinMode", "digital", 3, "PWM"]'); 
+			cpf.setPinMode('["resetPin"],["setPinMode", "text-alignalog", 0, "INPUT"],["setPinMode", "analog", 1,"INPUT"],["grove_newChainableLED", 7, 8, 1]'); 
+			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 3 , "PWM"]');
 			//document.getElementById("demo").innerHTML += ret + "<br>";
 	}
+
+
+	
 </script>
 </body>
 </html>
